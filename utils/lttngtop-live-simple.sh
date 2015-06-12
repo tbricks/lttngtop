@@ -64,6 +64,6 @@ lttngtop -r $(echo $s|cut -d' ' -f1)
 lttng destroy $SESSION_NAME >/dev/null
 echo -n "Destroy $HOME/lttng-traces/$HOSTNAME/${SESSION_NAME}* (Y/n) ? "
 read a
-if test $a = 'y' -o $a = 'Y'; then
+if test -z "$a" -o "$a" = 'y' -o "$a" = 'Y'; then
 	rm -rf $HOME/lttng-traces/$HOSTNAME/${SESSION_NAME}*
 fi
